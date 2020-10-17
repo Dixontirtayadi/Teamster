@@ -2,6 +2,7 @@ var express = require('express')
 var app = express();
 var database = require('./utils/database');
 var path = require('path');
+const PORT = process.env.PORT || 3000;
 
 // respond with "hello world" when a GET request is made to the homepage
 app.get('/', function (req, res) {
@@ -39,4 +40,6 @@ function printMap(map) {
   return (JSON.stringify(jsonObject));
 }
 
-app.listen(3000);
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
+});
