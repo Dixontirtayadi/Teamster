@@ -1,0 +1,11 @@
+body {
+    background-color: #32384B;
+    max-width: fit-content;
+    display: flex;
+    
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
