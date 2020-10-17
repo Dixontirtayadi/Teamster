@@ -5,7 +5,7 @@ var path = require('path');
 
 // respond with "hello world" when a GET request is made to the homepage
 app.get('/', function (req, res) {
-  res.
+  res.sendFile(path.join(__dirname + '/webpage/index.html'));
   res.end;
 })
 app.get('/hi', function (req, res) {
@@ -18,7 +18,7 @@ app.get('/class', function (req, res) {
   console.log(database.addClass(info.cID));
   console.log("class = " + info);
   // res.send(printMap(info.data));
-  res.sendFile(path.join(__dirname + '/webpage/index.html'));
+  res.sendFile(path.join(__dirname + '/webpage/main.html'));
   res.end;
 })
 
