@@ -1,0 +1,23 @@
+{
+  "name": "dubhacks20",
+  "version": "1.0.0",
+  "description": "Dubhacks'20 Project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dixontirtayadi/Teamster.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dixontirtayadi/Teamster/issues"
+  },
+  "homepage": "https://github.com/Dixontirtayadi/Teamster#readme",
+  "dependencies": {
+    "@google-cloud/language": "^4.1.1",
+    "express": "^4.17.1"
+  }
+}
