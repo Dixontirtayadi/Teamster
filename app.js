@@ -1,10 +1,11 @@
 var express = require('express')
 var app = express();
 var database = require('./utils/database');
+var path = require('path');
 
 // respond with "hello world" when a GET request is made to the homepage
 app.get('/', function (req, res) {
-  res.send("home page");
+  res.
   res.end;
 })
 app.get('/hi', function (req, res) {
@@ -16,7 +17,8 @@ app.get('/class', function (req, res) {
   var info = req.query;
   console.log(database.addClass(info.cID));
   console.log("class = " + info);
-  res.send(printMap(info.data));
+  // res.send(printMap(info.data));
+  res.sendFile(path.join(__dirname + '/webpage/index.html'));
   res.end;
 })
 
