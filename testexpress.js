@@ -12,9 +12,29 @@ app.get('/hi', function (req, res) {
   res.end;
 })
 
-app.get('/student', function (req, res) {
+app.get('/class', function (req, res) {
   var info = req.query;
-  console.log(database.addClass(info.classID));
+  console.log(database.addClass(info.cID));
+  console.log("class = " + info);
+  res.send(printMap(info.data));
+  res.end;
 })
+
+app.get('/class/students', function (req, res) { //classID=...&studentID=...&answers
+  var info = req.query;
+
+  console.log("student = " + info);
+  console.log(database.addStudent(info.cID, info.sID, info.sEMAIL, info.sAnswers));
+  res.send(printMap(info.data));
+  res.end;
+})
+
+function printMap(map) {
+  let jsonObject = {};
+  database.data.forEach((value, key) => {
+      jsonObject[key] = value
+  });
+  return (JSON.stringify(jsonObject));
+}
 
 app.listen(3000);
