@@ -3,10 +3,11 @@ var app = express();
 var database = require('./utils/database');
 var path = require('path');
 const PORT = process.env.PORT || 3000;
+app.use(express.static(__dirname + `/webpage`));
 
 // respond with "hello world" when a GET request is made to the homepage
 app.get('/', function (req, res) {
-  res.render(path.join(__dirname + '/webpage/index.html'));
+  res.sendFile(path.join(__dirname + '/webpage/index.html'));
   res.end;
 })
 app.get('/hi', function (req, res) {
