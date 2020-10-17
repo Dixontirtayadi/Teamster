@@ -20,4 +20,3 @@ function addStudent(classID, sName, sEmail, sAnswers) {
 module.exports.addClass = addClass; //send to other files
 module.exports.addStudent = addStudent;
 module.exports.data = data;
-
