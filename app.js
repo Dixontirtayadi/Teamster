@@ -1,6 +1,6 @@
 var express = require('express')
 var app = express();
-var database = require('./database');
+var database = require('./utils/database');
 
 // respond with "hello world" when a GET request is made to the homepage
 app.get('/', function (req, res) {
