@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 3000;
 
 // respond with "hello world" when a GET request is made to the homepage
 app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname + '/webpage/index.html'));
+  res.render(path.join(__dirname + '/webpage/index.html'));
   res.end;
 })
 app.get('/hi', function (req, res) {
