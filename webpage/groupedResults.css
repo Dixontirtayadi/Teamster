@@ -27,22 +27,16 @@ body {
     margin-top: 150px;
  }
 
- #live_feed{
-     color: white;
-     font-size: 15px;
-     padding: 25px;
- }
-
- #end{
+ #export{
      margin-bottom: 30px;
-     background-color: red;
-     border-color: red;
+     background-color: green;
+     border-color:green;
      border-radius: 38px;
      width: 150px;
      font-size: 15px;
      color: white;
  }
 
- h2 {
-     color: white;
+ #text_results{
+    color: white;
  }
