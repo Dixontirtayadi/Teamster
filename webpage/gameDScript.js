@@ -8,6 +8,7 @@
   function init() {
     id("classID").innerHTML = classID;
     document.getElementById("short-btn").addEventListener("click", startShortGame);
+    document.getElementById("long-btn").addEventListener("click", startLongGame);
     if (id("displayClass") !== null) {
       var mapped;
       let d = getMap();
@@ -30,9 +31,12 @@
 
 
 function startShortGame() {
-  window.location.href = 'http://localhost:3000/class/teachers/game/short?cID=' + classID;
+  window.location.href = window.location.origin + '/class/teachers/game/short?cID=' + classID;
 }
 
+function startLongGame() {
+  window.location.href = '/class/students/murdermystery?cID=' + classID;
+}
 
 
   /* ---- Helper Functions ---- */

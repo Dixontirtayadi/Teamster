@@ -77,6 +77,8 @@ app.get('/submit', function (req, res) {
 app.get('/class/students/murdermystery', function (req, res) { //classID=...&studentID=...&answers
   var info = req.query;
   console.log("murdermystery game is running");
+  database.turnOn(info.cID, "long");
+  console.log("turned " + info.cID + " " + database.getStatus(info.cID));
   res.sendFile(path.join(__dirname + '/webpage/murdermystery.html'));
   res.end;
 })
