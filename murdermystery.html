@@ -1,0 +1,270 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {font-family: "Lato", sans-serif}
+
+.mySlides {display: none}
+.btn {
+  border-color: white;
+  background-color: inherit;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.btn:hover {background: #eee;}
+
+.next {color: white;}
+#regForm {
+  background-color: #ffffff;
+  margin: 300px auto;
+  font-family: Lato;
+  padding: 40px;
+  width: 50%;
+  min-width: 300px;
+}
+
+h1 {
+  text-align: center;  
+}
+
+input {
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  font-family: Lato;
+  border: 1px solid #aaaaaa;
+}
+
+/* Hide all steps by default: */
+.tab {
+  display: none;
+}
+
+button {
+  background-color: #4CAF50;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 17px;
+  font-family: Raleway;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+#prevBtn {
+  background-color: #bbbbbb;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;  
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #4CAF50;
+}
+</style>
+<body>
+
+    <!-- Navbar -->
+    <div class="w3-top">
+    <div class="w3-bar w3-black w3-card">
+        <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+        <a href="#" class="w3-bar-item w3-button w3-padding-large">MURDER MYSTERY</a>
+        <div class="w3-dropdown-hover w3-hide-small">
+        <button class="w3-padding-large w3-button" title="RULES">RULES <i class="fa fa-caret-down"></i></button>     
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+            <a href="#" class="w3-bar-item w3-button">1. Remain in character throughout the game.</a>
+            <a href="#" class="w3-bar-item w3-button">2. Answer questions according to the information you are given. </a>
+            <a href="#" class="w3-bar-item w3-button">3. Don't lie, but make sure to be eusive about sensitive information...</a>
+            <a href="#" class="w3-bar-item w3-button">4. Trust nobody. Even yourself.</a>
+            </a>
+        </div>
+        </div>
+        <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
+    </div>
+    </div>
+
+    <!-- Page content -->
+    <img src="https://images.squarespace-cdn.com/content/v1/5e8f8debe5f4bb1e8bf451c1/1586545614233-RFMENR4F9I3XFI4A0T5Z/ke17ZwdGBToddI8pDm48kLkXF2pIyv_F2eUT9F60jBl7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0iyqMbMesKd95J-X4EagrgU9L3Sa3U8cogeb0tjXbfawd0urKshkc5MgdBeJmALQKw/Background+Only.jpg?format=2500w" style="width:100%">
+    <div class="w3-content" style="max-width:2000px;margin-top:48px">
+
+        <form id="regForm" action="/action_page.php">
+            <!-- One "tab" for each step in the form: -->
+            <div class="tab">
+                <h3>Murder Mystery</h3>
+                <p><b>Trust Nobody. Even yourself.</b></p>  
+            </div>
+            <div class="tab">
+                <h3>The Scene at Rumman Manor</h3>
+                <p><b>We are gathered here this afternoon to read the last will and testament of the Baroness Arabella Rummun.  She died recently under tragic and mysterious circumstances.  The police haven't been able to find out what happened.
+                    As a friend of hers, you are here to lay claim to some of the wonderful artefacts that the baroness has collected over the years. When you arrive at her manor, you find that there are many people who knew the late Baroness. 
+                    The group is an eclectic mix of characters, and with the mystery of the Baroness' murder still unsolved, you don't know who you can trust.</b></p>            
+            </div>
+            <div class="tab">
+                <h3>The Scene is Odd, but Keep Your Composure</h3>
+                <p><b>1. Remain in character throughout the game.</b></p>
+                <p><b>2. Answer questions according to the information you are given.</b></p>
+                <p><b>3. Don't lie, but make sure to be evasive about sensitive information....</b></p> 
+                <p><b>4. Trust nobody. Even yourself.</b></p>
+            </div>
+            <div class="tab">
+                <h3>Your Character</h3>
+            </div>
+            <div style="overflow:auto;">
+              <div style="float:right;">
+                <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+              </div>
+            </div>
+            <!-- Circles which indicates the steps of the form: -->
+            <div style="text-align:center;margin-top:40px;">
+              <span class="step"></span>
+              <span class="step"></span>
+              <span class="step"></span>
+              <span class="step"></span>
+            </div>
+          </form>
+
+    <!-- Automatic Slideshow Images
+    <div class="mySlides w3-display-container w3-center">
+        <img src="https://images.squarespace-cdn.com/content/v1/5e8f8debe5f4bb1e8bf451c1/1586545614233-RFMENR4F9I3XFI4A0T5Z/ke17ZwdGBToddI8pDm48kLkXF2pIyv_F2eUT9F60jBl7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0iyqMbMesKd95J-X4EagrgU9L3Sa3U8cogeb0tjXbfawd0urKshkc5MgdBeJmALQKw/Background+Only.jpg?format=2500w" style="width:100%">
+        <div class="w3-display-middle w3-container w3-text-white w3-padding-32 w3-hide-small">
+        <h3>Murder Mystery</h3>
+        <p><b>Trust Nobody. Even yourself.</b></p>   
+        </div>
+    </div>
+    <div class="mySlides w3-display-container w3-center">
+        <img src="https://images.squarespace-cdn.com/content/v1/5e8f8debe5f4bb1e8bf451c1/1586545614233-RFMENR4F9I3XFI4A0T5Z/ke17ZwdGBToddI8pDm48kLkXF2pIyv_F2eUT9F60jBl7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0iyqMbMesKd95J-X4EagrgU9L3Sa3U8cogeb0tjXbfawd0urKshkc5MgdBeJmALQKw/Background+Only.jpg?format=2500w" style="width:100%">
+        <div class="w3-display-middle w3-container w3-text-white w3-padding-32 w3-hide-small">
+        <h3>The Scene at Rumman Manor</h3>
+        <p><b>We are gathered here this afternoon to read the last will and testament of the Baroness Arabella Rummun.  She died recently under tragic and mysterious circumstances.  The police haven't been able to find out what happened.
+            As a friend of hers, you are here to lay claim to some of the wonderful artefacts that the baroness has collected over the years. When you arrive at her manor, you find that there are many people who knew the late Baroness. 
+            The group is an eclectic mix of characters, and with the mystery of the Baroness' murder still unsolved, you don't know who you can trust.</b></p>    
+        </div>
+    </div>
+    <div class="mySlides w3-display-container w3-center">
+        <img src="https://images.squarespace-cdn.com/content/v1/5e8f8debe5f4bb1e8bf451c1/1586545614233-RFMENR4F9I3XFI4A0T5Z/ke17ZwdGBToddI8pDm48kLkXF2pIyv_F2eUT9F60jBl7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0iyqMbMesKd95J-X4EagrgU9L3Sa3U8cogeb0tjXbfawd0urKshkc5MgdBeJmALQKw/Background+Only.jpg?format=2500w" style="width:100%">
+        <div class="w3-display-middle w3-container w3-text-white w3-padding-32 w3-hide-small">
+        <h3>The Scene is Odd, but Keep Your Composure</h3>
+        <p><b>1. Remain in character throughout the game.</b></p>
+        <p><b>2. Answer questions according to the information you are given.</b></p>
+        <p><b>3. Don't lie, but make sure to be evasive about sensitive information....</b></p> 
+        <p><b>4. Trust nobody. Even yourself.</b></p>
+        </div>
+    </div> -->
+
+    </div>
+
+    <script>
+    // Automatic Slideshow - change image every 4 seconds
+    var currentTab = 0; // Current tab is set to be the first tab (0)
+    showTab(currentTab); // Display the current tab
+
+    function showTab(n) {
+    // This function will display the specified tab of the form...
+    var x = document.getElementsByClassName("tab");
+    x[n].style.display = "block";
+    //... and fix the Previous/Next buttons:
+    if (n == 0) {
+        document.getElementById("prevBtn").style.display = "none";
+    } else {
+        document.getElementById("prevBtn").style.display = "inline";
+    }
+    if (n == (x.length - 1)) {
+        document.getElementById("nextBtn").innerHTML = "Submit";
+    } else {
+        document.getElementById("nextBtn").innerHTML = "Next";
+    }
+    //... and run a function that will display the correct step indicator:
+    fixStepIndicator(n)
+    }
+
+    function nextPrev(n) {
+    // This function will figure out which tab to display
+    var x = document.getElementsByClassName("tab");
+    // Exit the function if any field in the current tab is invalid:
+    x[currentTab].style.display = "none";
+    // Increase or decrease the current tab by 1:
+    currentTab = currentTab + n;
+    // if you have reached the end of the form...
+    if (currentTab >= x.length) {
+        // ... the form gets submitted:
+        document.getElementById("regForm").submit();
+        return false;
+    }
+    // Otherwise, display the correct tab:
+    showTab(currentTab);
+    }
+
+    function fixStepIndicator(n) {
+    // This function removes the "active" class of all steps...
+    var i, x = document.getElementsByClassName("step");
+    for (i = 0; i < x.length; i++) {
+        x[i].className = x[i].className.replace(" active", "");
+    }
+    //... and adds the "active" class on the current step:
+    x[n].className += " active";
+    }
+
+    // var myIndex = 0;
+    // carousel();
+
+    // function carousel() {
+    // var i;
+    // var x = document.getElementsByClassName("mySlides");
+    // for (i = 0; i < x.length; i++) {
+    //     x[i].style.display = "none";  
+    // }
+    // myIndex++;
+    // if (myIndex > x.length) {myIndex = 1}    
+    // x[myIndex-1].style.display = "block";  
+    // setTimeout(carousel, 8000);    
+    // }
+
+    // // Used to toggle the menu on small screens when clicking on the menu button
+    // function myFunction() {
+    // var x = document.getElementById("navDemo");
+    // if (x.className.indexOf("w3-show") == -1) {
+    //     x.className += " w3-show";
+    // } else { 
+    //     x.className = x.className.replace(" w3-show", "");
+    // }
+    // }
+
+    // When the user clicks anywhere outside of the modal, close it
+    var modal = document.getElementById('ticketModal');
+    window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+    }
+    </script>
+
+    </body>
+    
+</html>
