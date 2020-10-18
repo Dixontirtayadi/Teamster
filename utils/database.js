@@ -37,10 +37,8 @@ function isEqual(a, b) {
   if (aProps.length != bProps.length) {
       return false;
   }
-
   for (var i = 0; i < aProps.length; i++) {
       var propName = aProps[i];
-
       // If values of same property are not equal,
       // objects are not equivalent
       if (a[propName] !== b[propName]) {
