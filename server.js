@@ -57,8 +57,9 @@ app.get('/class/teachers/game/short', function (req, res) { //enters when short 
   var info = req.query;
   // console.log("student = " + info);
   // if (!database.addClass(info.cID) == "exists!") {
-    database.turOn(info.cID, "short");
-    res.sendFile(path.join(__dirname + '/webpage/waitingForResponse.html'));
+    database.turnOn(info.cID, "short");
+    console.log("turned " + info.cID + " " + database.getStatus(info.cID));
+    res.sendFile(path.join(__dirname + '/webpage/waitingForResponses.html'));
   // }
   res.end;
 })

@@ -8,6 +8,20 @@
   function init() {
     id("classID").innerHTML = classID;
     document.getElementById("short-btn").addEventListener("click", startShortGame);
+    if (id("displayClass") !== null) {
+      var mapped;
+      let d = getMap();
+      d.then((data) => (
+        function() {
+          var str = "";
+          for (var i = 0; i < data[classID].length ; i++) {
+            console.log(id("displayClass").value);
+            str += "<br>" + JSON.stringify(data[classID][i]["name"])
+          }
+          id("displayClass").innerHTML = str;
+        }()
+      ));
+    }
   }
 
 function startShortGame() {
