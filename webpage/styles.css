@@ -1,13 +1,77 @@
-/* Colors */
+* {
+    font-family: 'Montserrat', sans-serif;
+ }
+ 
+ body{
+    background-color: #32384B;
+    
+ }
 
-:root {
-    --dark-purple: #6C4882;
-    --white: #ffffff;
-    --orange: #FF7A00;
-    --green:#006504;
-    --cyan: #00FFF0;
-    --bubble-brown: #FF4D00;
-    --bubble-dark-brown: #1C1313;
-    --logo-grey: #C4C4C4;
+ #main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ }
 
+ #landingMain {
+     display: flex;
+
+ }
+
+ #header {
+     background-color: #6C4882;
+     font-size: 35px;
+     color: white;
+     font-style: bold;
+     padding: 25px;
+ }
+
+ h2 {
+     color: white;
+     margin-top: 80px;
+ }
+.form, .question {
+    margin-top: 20px;
+}
+
+
+
+.form {
+    display: flex;
+    justify-content: center;
+}
+
+.numberOfPeople {
+    width: 150px;
+    height: 50px;
+    font-size: 5px 10px orange;
+}
+
+#input {
+    background-color: white;
+    padding: 50px;
+    border-radius: 5px;
+    border: 3px orange;
+    margin-top: 150px;
+    box-shadow: green 5px;
+}
+
+#roomChoice {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    background-color: green;
+    border-color: green;
+    border-radius: 38px;
+    width: 150px;
+    font-size: 30px;
+    color: white;
+    
+}
+
+.form {
+    display: flex;
+    justify-content: space-evenly;
 }
