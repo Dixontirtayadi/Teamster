@@ -20,7 +20,7 @@ app.get('/class', function (req, res) {
   console.log(database.addClass(info.cID));
   console.log("class = " + info);
   // res.send(printMap(info.data));
-  res.sendFile(path.join(__dirname + '/webpage/main.html'));
+  res.sendFile(path.join(__dirname + '/webpage/memberInfo.html'));
   res.end;
 })
 

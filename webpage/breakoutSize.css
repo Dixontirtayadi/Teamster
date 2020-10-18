@@ -1,26 +1,45 @@
- body {
+ * {
+    font-family: 'Montserrat', sans-serif;
+ }
+ 
+ body{
     background-color: #32384B;
-    display: flex;
+    
+ }
+
+ #main {
+     display: flex;
     flex-direction: column;
     align-items: center;
  }
 
+ #header {
+     background-color: #6C4882;
+     font-size: 35px;
+     color: white;
+     font-style: bold;
+     padding: 25px;
+ }
+
  h2 {
      color: white;
+     margin-top: 80px;
  }
 .form, .question {
     margin-top: 20px;
 }
+
+
 
 .form {
     display: flex;
     justify-content: center;
 }
 
-input {
-    width: 100%;
-    padding: 20px;
-    border-radius: 5px;
+.numberOfPeople {
+    width: 150px;
+    height: 50px;
+    font-size: 5px 10px orange;
 }
 
 #input {
@@ -28,4 +47,21 @@ input {
     padding: 50px;
     border-radius: 5px;
     border: 3px orange;
+    margin-top: 150px;
+    box-shadow: green 5px;
+}
+
+button {
+    background-color: green;
+    border-color: green;
+    border-radius: 38px;
+    width: 150px;
+    font-size: 30px;
+    color: white;
+    
+}
+
+.form {
+    display: flex;
+    justify-content: space-evenly;
 }
