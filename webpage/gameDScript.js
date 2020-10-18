@@ -31,7 +31,7 @@
 
 
 function startShortGame() {
-  window.location.href = 'http://localhost:3000/class/teachers/game/short?cID=' + classID;
+  window.location.href = window.location.origin + '/class/teachers/game/short?cID=' + classID;
 }
 
 function startLongGame() {
