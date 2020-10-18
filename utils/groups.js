@@ -7,7 +7,7 @@ const Q = require('q');
 // Params: User Object which has uID and Responses
 // Return: {uID: ..., sent: {score:..., magnitude:...}}
 async function analyzeText(user) {
-  const text = user.responses;
+  const text = user;
   const document = {
     content: text,
     type: 'PLAIN_TEXT',
@@ -21,7 +21,7 @@ async function analyzeText(user) {
   console.log(text);
   console.log(`  Score: ${sentiment.score}`);
   console.log(`  Magnitude: ${sentiment.magnitude}`);
-  return {userID: user.sID, sent: sentiment};
+  return sentiment;
 
   // const sentences = result.sentences;
   // sentences.forEach(sentence => {
@@ -31,16 +31,33 @@ async function analyzeText(user) {
   // });
 }
 
+async function analyzeOneUser(user) {
+  const myPromise = new Promise((resolve, reject) => {
+    var sentArr = []
+    for (let i = 0; i < user.responses.length; i++) {
+      sentArr[i] = analyzeText(user.responses[i]);
+    }  
+    Q.all(sentArr).then(function() {
+      let sentiment = {magnitude: 0, score: 0};
+      for (let i = 0; i < sentArr.length; i++) {
+        sentiment.magnitude += sentArr[i].magnitude;
+        sentiment.score += sentArr[i].score;
+      }
+      resolve({userID: user.sID, sent: sentiment});
+    });  
+  });
+  return myPromise;
+
+}
+
 // Make the analyze call parallel for each user
 // return an array of Promises object which will
 // resolve to {uID: ..., sent: {score:..., magnitude:...}}
 async function analyzeUsers(users, sentimentTemp) {
-  // const promises = [];
   for (let i = 0; i < users.length; i++) {
-    sentimentTemp[i] = analyzeText(users[i]);
-    // promises.push(sentimentTemp[i]);
+    // sentimentTemp[i] = analyzeText(users[i]);
+    sentimentTemp[i] = analyzeOneUser(users[i]);
   }
-  return sentimentTemp;
 }
 
 // Params: array of users and a maximum number of group to make
@@ -49,9 +66,9 @@ function formGroups(users, groupSiz) {
   const myPromise = new Promise((resolve, reject) => {
     var groupSize = 2;
     // var trial = ["I love ice cream", "asdqwdn", "I hate this hw", "Is it raining now?"];
-    var trial = [{sID: "1", responses: "I love ice cream"}, {sID: "2", responses: "I hate ice cream"}, {sID: "3", responses: "I love ice cream"}, {sID: "4", responses: "I hate ice cream"}]
-    var sentiments = [];
+    var trial = [{sID: "1", responses: ["I love ice cream", "I love dogs"]}, {sID: "2", responses: ["I hate ice cream", "I hate dogs"]}]
     var groups = [];
+    var sentiments = [];
     analyzeUsers(trial, sentiments);
     Q.all(sentiments).then(function() {
       // console.log(sentiments);
