@@ -1,11 +1,17 @@
-body {
-    background-color: #32384B;
-    max-width: fit-content;
-    display: flex;
-    
+
+:root {
+    --ice-color: #00FFF0;
+    --purple-color: #6C4882;
+    --green-color: #006504;
+    --orange-color: #FF7A00;
+    --red-color: #FF0000;
 }
 
-.form {
-    display: flex;
-    flex-direction: column;
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    
 }
