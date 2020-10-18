@@ -69,8 +69,8 @@ app.get('/class/teachers/game/short', function (req, res) { //enters when short 
 app.get('/submit', function (req, res) {
   var info =  req.query;
   database.addAnswer(info.cID, info.sID, info.answer);
-  // Need a simple thank you page
-  // res.sendFile(path.join(__dirname + '/webpage/waitingForResponses.html'))
+  res.sendFile(path.join(__dirname + '/webpage/thankYou.html'))
+  res.end;
 })
 
 // Helene
@@ -78,15 +78,18 @@ app.get('/class/students/murdermystery', function (req, res) { //classID=...&stu
   var info = req.query;
   console.log("murdermystery game is running");
   res.sendFile(path.join(__dirname + '/webpage/murdermystery.html'));
-  //res.send(printMap());
   res.end;
 })
 // Helene
 
 app.get('/analyzeResult', function (req, res) { //classID=...&groupSize=...
-  res.sendFile(path.join(__dirname + "/webpage/loadingresults.html"));
+  res.sendFile(path.join(__dirname + "/webpage/breakoutSize.html"));
   res.end;
 })
+
+app.get('/analyze', function(req, res) {
+  res.sendFile(path.join(__dirname + "/webpage/loadingresults.html"));
+}
 
 app.get('/getData', function (req, res) {
   res.send(printMap());
@@ -96,9 +99,6 @@ app.get('/formGroups', function (req, res) { //classID=...&groupSize=...
   var cid = req.query.classID;
   var groupSize = 2;
   grouper(database.data.get(cid), groupSize).then((group) => {
-    // for (let i = 0; i < group.length; i++) {
-    //   res.send(group[i]);
-    // }
     res.send(group);
   });
   res.end;

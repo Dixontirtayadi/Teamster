@@ -69,18 +69,13 @@ async function analyzeUsers(users, sentimentTemp) {
 // Params: array of users and a maximum number of group to make
 // Return: Grouping of the user 
 function formGroups(users, groupSiz) {
+  console.log("FormGroups called");
   const myPromise = new Promise((resolve, reject) => {
     var groupSize = 2;
-    // var trial = ["I love ice cream", "asdqwdn", "I hate this hw", "Is it raining now?"];
-    // var trial = [{sID: "1", responses: ["I love ice cream", "I love dogs"]}, {sID: "2", responses: ["I hate ice cream", "I hate dogs"]}]
     var groups = [];
     var sentiments = analyzeUsers(users, sentiments);
-    // console.log(sentiments);
     sentiments.then((data) => {
-      // console.log(sentiments);
-      // console.log(data);
       data.sort(compareSent);
-      // console.log(sentiments);
       groups = assignGroupFromSentiment(data, groupSize);
       // Testing
       for (let i = 0; i < groups.length; i++) {
