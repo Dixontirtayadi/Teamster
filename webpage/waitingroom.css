@@ -1,14 +1,32 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+ }
+
 body {
     background-color: #32384B;
+ }
+
+
+ #header {
+    background-color: #6C4882;
+    font-size: 35px;
+    color: white;
+    font-style: bold;
+    padding: 25px;
+}
+
+ #input{
+    color: #FFB1B1;
     display: flex;
     flex-direction: column;
     align-items: center;
- }
-
- .instruction{
-    color: #FFB1B1;
+    justify-content: center;
  }
 
  h2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     color: white;
+    margin-top: 80px;
 }

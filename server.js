@@ -26,10 +26,9 @@ app.get('/class', function (req, res) {
 
 app.get('/class/students', function (req, res) { //classID=...&studentID=...&answers
   var info = req.query;
-
-  console.log("student = " + info);
-  console.log(database.addStudent(info.cID, info.sID, info.sEMAIL, info.sAnswers));
-  res.send(printMap());
+  // console.log("student = " + info);
+  console.log(database.addStudent(info.cID, info.sID, info.sEMAIL));
+  res.sendFile(path.join(__dirname + '/webpage/waitingroom.html'));
   res.end;
 })
 
