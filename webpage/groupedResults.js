@@ -3,14 +3,18 @@
 (function () {
     window.addEventListener("load", init);
     function init() {
-      getResults();
+      var cid = getQueryStringValue("classID");
+      fetch("/formGroups?classID=" + cid).then((response) => {
+          response.json().then( (data) => {
+             getResults(data);
+          })
+      })
     }
 
-    function getResults () {
+    function getResults (data) {
         // Change numPeople based on data
         
-        //var results = [numPeople][2];
-        var results = [[{name: "Woo Young Kim", email: "wookim@uw.edu"}, {name: "Name2", email: "name2uw.edu"},{name: "Name3", email: "Name3@uw.edu"}, ],[{name: "Group2Name1", email: "G2N1@uw.edu"}, {name: "Name4", email: "Name4@uw.edu"}, {name: "Name5", email: "Name5@uw.edu"}]];
+        var results = data;
         for ( let i = 0; i < results.length; i++) {
             let list = document.createElement("ul");
             list.class = "person" + i;
