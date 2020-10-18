@@ -13,7 +13,6 @@ body {
     color: white;
     font-style: bold;
     padding: 25px;
-    display: flex;
     border-radius: 30px;
 }
 
@@ -23,19 +22,5 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 150px;
- }
-
- #export{
-     margin-bottom: 30px;
-     background-color: green;
-     border-color:green;
-     border-radius: 38px;
-     width: 150px;
-     font-size: 15px;
-     color: white;
- }
-
- #text_results{
-    color: white;
+    margin-top: 350px;
  }
