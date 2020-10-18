@@ -13,5 +13,26 @@
 }
 
 body {
-    
+    font-family: 'Montserrat', sans-serif;
+}
+
+.wrapper {
+    width: 1440 px;
+    margin: 0 auto;
+}
+
+.desktop-nav {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    background-color: var(--purple-color);
+}
+
+.desktop-nav .top-menu li {
+    display: flex;
+    list-style: none;
+    margin: 20 20 px;
+    color: white;
+    font-size: 36px;
+    font-weight: bold;
 }
