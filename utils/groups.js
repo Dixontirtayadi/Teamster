@@ -1,7 +1,7 @@
 const language = require('@google-cloud/language');
 const { async } = require('q');
 const client = new language.LanguageServiceClient();
-const Q = require('q');  
+const Q = require('q');
 
 // Call sentiment analysis
 // Params: text to analyze
@@ -31,7 +31,7 @@ async function analyzeOneUser(user) {
     var responses = user.answer.split("|");
     for (let i = 0; i < responses.length; i++) {
       sentArr[i] = analyzeText(responses[i]);
-    }  
+    }
     Q.all(sentArr).then(function() {
       let sentiment = {magnitude: 0, score: 0};
       for (let i = 0; i < sentArr.length; i++) {
@@ -39,7 +39,7 @@ async function analyzeOneUser(user) {
         sentiment.score += sentArr[i].score;
       }
       resolve({email: user.email, name: user.name, sent: sentiment});
-    });  
+    });
   });
   return myPromise;
 
@@ -54,13 +54,13 @@ async function analyzeUsers(users, sentimentTemp) {
     }
     Q.all(sentimentTemp).then(function() {
       resolve(sentimentTemp);
-    });  
+    });
   });
   return myPromise;
 }
 
 // Params: array of users and a maximum number of group to make
-// Return: Grouping of the user 
+// Return: Grouping of the user
 function formGroups(users, groupSize) {
   const myPromise = new Promise((resolve, reject) => {
     var groups = [];

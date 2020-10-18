@@ -30,9 +30,9 @@ function addStudent(classID, sName, sEmail, sAnswers) {
   console.log(printMap())
 }
 
-function turnOn(classID) {
+function turnOn(classID, str) {
   //assumes class is already in on
-  on.set(classID, "short");
+  on.set(classID, str);
 }
 
 function getStatus(classID) {
