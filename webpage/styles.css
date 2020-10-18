@@ -23,6 +23,7 @@
      font-style: bold;
      font-size: 36px;
      margin-top: 240px;
+     padding-top: 110px;
  }
 
  #ice {
@@ -40,6 +41,7 @@
      color: white;
      font-style: bold;
      padding: 25px;
+     border-radius: 30px;;
  }
 
  h2 {
@@ -50,7 +52,7 @@
     margin-top: 20px;
 }
 
-#join, #create {
+#join, #create, #email, #name {
     margin-top: 15px;
     margin-bottom: 15px;
     height: 63px;
@@ -58,7 +60,7 @@
     border-radius: 23px;
 }
 
-#join-btn, #create-btn {
+#join-btn, #create-btn, #joinGame {
     margin-bottom: 15px;
 }
 
@@ -93,7 +95,7 @@ margin-top: 20px;
 }
 
 #roomChoice, #landingMain p {
-    margin-top: 200px;
+    margin-top: 150px;
 }
 
 button {
