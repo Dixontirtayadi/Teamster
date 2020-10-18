@@ -16,12 +16,9 @@
             list.class = "person" + i;
             console.log(results[i]);
             for (let j = 0; j < results[i].length; j++) {
-                let name = document.createElement("li");
-                let email = document.createElement("li");
-                name.textContent = results[i][0].name;
-                email.textContent = results[i][1].email;
-                list.appendChild(name);
-                list.appendChild(email);
+                let nameEmail = document.createElement("li");
+                nameEmail.textContent = results[i][j].name + ", " + results[i][j].email;
+                list.appendChild(nameEmail);
             }
             console.log(id("text_results"));
             id("text_results").appendChild(list);
