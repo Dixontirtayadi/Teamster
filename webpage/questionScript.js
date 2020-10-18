@@ -7,18 +7,13 @@
     document.getElementById("submit").addEventListener("click", getData);
   }
 
-
 function getData() {
   var outputs = id("q1").value + "|" + id("q2").value + "|"+ id("q3").value + "|"+ id("q4").value + "|"+ id("q5").value;
-  console.log(outputs);
   const url = new URL(window.location.href);
   const classID = url.searchParams.get("cID");
   window.location.href = window.location.origin + '/submit?cID=' + classID +
     "&sID=" + url.searchParams.get("sID") + "&sEMAIL=" + url.searchParams.get("sEMAIL") + "&answer=" + outputs;
 }
-
-
-
   /* ---- Helper Functions ---- */
   function id(id) {
     return document.getElementById(id);

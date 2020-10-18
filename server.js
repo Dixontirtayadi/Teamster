@@ -68,6 +68,8 @@ app.get('/class/teachers/game/short', function (req, res) { //enters when short 
 app.get('/submit', function (req, res) {
   var info =  req.query;
   database.addAnswer(info.cID, info.sID, info.answer);
+  // Need a simple thank you page
+  // res.sendFile(path.join(__dirname + '/webpage/waitingForResponses.html'))
 })
 
 // Helene
@@ -87,10 +89,10 @@ app.get('/getData', function (req, res) {
 app.get('/formGroups', function (req, res) { //classID=...&groupSize=...
   var cid = req.query.classID;
   var groupSize = 2;
-  // console.log(cid);
-  // console.log(database.data.get(cid));
   grouper(database.data.get(cid), groupSize).then((group) => {
-    // console.log(group);
+    // for (let i = 0; i < group.length; i++) {
+    //   res.send(group[i]);
+    // }
     res.send(group);
   });
 })
