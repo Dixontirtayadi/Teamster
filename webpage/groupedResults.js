@@ -25,9 +25,8 @@
                 nameEmail.textContent = results[i][j].name + ", " + results[i][j].email;
                 list.appendChild(nameEmail);
             }
-            console.log(id("text_results"));
             id("text_results").appendChild(list);
-            exportToCsv("breakoutrooms.csv", results);
+            id("export").addEventListener(exportToCsv, "breakoutrooms.csv", results);
         }
     }
 
