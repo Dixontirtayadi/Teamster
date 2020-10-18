@@ -9,6 +9,13 @@
         var cID = getQueryStringValue("cID")
         window.location.href = window.location.origin + "/analyzeResult?classID=" + cID;
     });
+    if (id("displayClass") !== null) {
+      let d = getMap();
+      d.then((data) => (
+        id("diplayClass").innerHTML = JSON.stringify(data)
+      ));
+      // id("demo").innerHTML = id("join").value;
+    }
   }
 
   /* ---- Helper Functions ---- */
