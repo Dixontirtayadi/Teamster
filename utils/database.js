@@ -17,6 +17,15 @@ function addStudent(classID, sName, sEmail, sAnswers) {
   }
 }
 
+function printMap() {
+  let jsonObject = {};
+  data.forEach((value, key) => {
+      jsonObject[key] = value
+  });
+  return (JSON.stringify(jsonObject));
+}
+
 module.exports.addClass = addClass; //send to other files
 module.exports.addStudent = addStudent;
 module.exports.data = data;
+module.exports.show = printMap;
