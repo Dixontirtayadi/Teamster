@@ -10,9 +10,8 @@
     if (id("displayClass") !== null) {
       let d = getMap();
       d.then((data) => (
-        id("displayClass").innerHTML = JSON.stringify(data)
+        id("displayClass").innerHTML = JSON.stringify(data[classID])
       ));
-      // id("demo").innerHTML = id("join").value;
     }
   }
 
