@@ -1,6 +1,5 @@
 * {
     font-family: 'Montserrat', sans-serif;
-    color: white;
  }
  
  body{
@@ -20,6 +19,7 @@
  }
 
  #landingMain p {
+     color: white;
      font-style: bold;
      font-size: 36px;
  }
@@ -72,6 +72,7 @@
 #roomChoice {
     display: flex;
     flex-direction: column;
+    color: white;
 }
 
 button {
