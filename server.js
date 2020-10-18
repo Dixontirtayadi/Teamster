@@ -2,6 +2,7 @@ var express = require('express')
 var app = express();
 var database = require('./utils/database');
 var path = require('path');
+var grouper = require('./utils/groups');
 const PORT = process.env.PORT || 3000;
 app.use(express.static(__dirname + `/webpage`));
 
@@ -72,7 +73,6 @@ app.get('/submit', function (req, res) {
 // Helene
 app.get('/class/students/murdermystery', function (req, res) { //classID=...&studentID=...&answers
   var info = req.query;
-
   console.log("murdermystery game is running");
   res.sendFile(path.join(__dirname + '/webpage/murdermystery.html'));
   //res.send(printMap());
@@ -80,8 +80,16 @@ app.get('/class/students/murdermystery', function (req, res) { //classID=...&stu
 })
 // Helene
 
-app.get('/getData', function (req, res) { //classID=...&studentID=...&answers
+app.get('/getData', function (req, res) {
   res.send(printMap());
+})
+
+app.get('/formGroups', function (req, res) { //classID=...&groupSize=...
+  var cid = req.query.cID;
+  var groupSize = req.query.groupSize;
+  grouper(database.data[cid], groupSize).then((group) => {
+    res.send(group);
+  });
 })
 
 function printMap() {
@@ -95,3 +103,4 @@ function printMap() {
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
+

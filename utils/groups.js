@@ -45,28 +45,31 @@ async function analyzeUsers(users, sentimentTemp) {
 
 // Params: array of users and a maximum number of group to make
 // Return: Grouping of the user 
-async function formGroups(users, groupSiz) {
-  var groupSize = 2;
-  // var trial = ["I love ice cream", "asdqwdn", "I hate this hw", "Is it raining now?"];
-  var trial = [{sID: "1", responses: "I love ice cream"}, {sID: "2", responses: "I hate ice cream"}, {sID: "3", responses: "I love ice cream"}, {sID: "4", responses: "I hate ice cream"}]
-  var sentiments = []
-  var groups = [];
-  analyzeUsers(trial, sentiments);
-  Q.all(sentiments).then(function() {
-    // console.log(sentiments);
-    sentiments.sort(compareSent);
-    console.log(sentiments);
-    groups = assignGroupFromSentiment(sentiments, groupSize);
-    // Testing
-    for (let i = 0; i < groups.length; i++) {
-      console.log("groups: " + groups[i]);
-    }
-    return groups;
+function formGroups(users, groupSiz) {
+  const myPromise = new Promise((resolve, reject) => {
+    var groupSize = 2;
+    // var trial = ["I love ice cream", "asdqwdn", "I hate this hw", "Is it raining now?"];
+    var trial = [{sID: "1", responses: "I love ice cream"}, {sID: "2", responses: "I hate ice cream"}, {sID: "3", responses: "I love ice cream"}, {sID: "4", responses: "I hate ice cream"}]
+    var sentiments = [];
+    var groups = [];
+    analyzeUsers(trial, sentiments);
+    Q.all(sentiments).then(function() {
+      // console.log(sentiments);
+      sentiments.sort(compareSent);
+      console.log(sentiments);
+      groups = assignGroupFromSentiment(sentiments, groupSize);
+      // Testing
+      for (let i = 0; i < groups.length; i++) {
+        console.log("groups: " + groups[i]);
+      }
+      resolve(groups);
+    });  
   });
+  return myPromise;
 }
 
 // Assign the grouping per index to the groups array
-function assignGroupFromSentiment(sentiments, groupSize) {
+async function assignGroupFromSentiment(sentiments, groupSize) {
   var groups = [];
   for (let i = 0; i < sentiments.length; ) {
     console.log(i);
@@ -99,4 +102,4 @@ function compareSent(a, b) {
   }
 }
 
-formGroups();
+module.exports = formGroups
