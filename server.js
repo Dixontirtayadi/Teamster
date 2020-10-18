@@ -89,7 +89,7 @@ app.get('/analyzeResult', function (req, res) { //classID=...&groupSize=...
 
 app.get('/analyze', function(req, res) {
   res.sendFile(path.join(__dirname + "/webpage/loadingresults.html"));
-}
+})
 
 app.get('/getData', function (req, res) {
   res.send(printMap());
