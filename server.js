@@ -33,6 +33,10 @@ app.get('/class/students', function (req, res) { //classID=...&studentID=...&ans
   res.end;
 })
 
+app.get('/getData', function (req, res) { //classID=...&studentID=...&answers
+  res.send(printMap(database.data));
+})
+
 function printMap(map) {
   let jsonObject = {};
   database.data.forEach((value, key) => {
