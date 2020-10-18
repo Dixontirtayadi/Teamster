@@ -9,7 +9,8 @@
   
   function submitData() {
     var cid = getQueryStringValue("classID");
-    var maxNum = id("numberOfPeople").nodeValue;
+    var maxNum = id("numberOfPeople").value;
+    console.log(maxNum);
     window.location.href = window.location.origin + "/analyze?classID=" + cid + "&maxNum=" + maxNum;
   }
   // reference from MDN

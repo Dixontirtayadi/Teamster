@@ -88,7 +88,7 @@ app.get('/analyzeResult', function (req, res) { //classID=...&groupSize=...
 })
 
 app.get('/analyze', function(req, res) {
-  res.sendFile(path.join(__dirname + "/webpage/loadingresults.html"));
+  res.sendFile(path.join(__dirname + "/webpage/groupedResults.html"));
 })
 
 app.get('/getData', function (req, res) {
@@ -97,7 +97,8 @@ app.get('/getData', function (req, res) {
 
 app.get('/formGroups', function (req, res) { //classID=...&groupSize=...
   var cid = req.query.classID;
-  var groupSize = 2;
+  var groupSize = req.query.maxNum;
+  console.log(groupSize);
   grouper(database.data.get(cid), groupSize).then((group) => {
     res.send(group);
   });

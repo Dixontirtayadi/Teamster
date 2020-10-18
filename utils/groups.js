@@ -68,10 +68,9 @@ async function analyzeUsers(users, sentimentTemp) {
 
 // Params: array of users and a maximum number of group to make
 // Return: Grouping of the user 
-function formGroups(users, groupSiz) {
+function formGroups(users, groupSize) {
   console.log("FormGroups called");
   const myPromise = new Promise((resolve, reject) => {
-    var groupSize = 2;
     var groups = [];
     var sentiments = analyzeUsers(users, sentiments);
     sentiments.then((data) => {

@@ -4,7 +4,8 @@
     window.addEventListener("load", init);
     function init() {
       var cid = getQueryStringValue("classID");
-      fetch("/formGroups?classID=" + cid).then((response) => {
+      var num = getQueryStringValue("maxNum");
+      fetch("/formGroups?classID=" + cid +"&maxNum=" + num).then((response) => {
           response.json().then( (data) => {
              getResults(data);
           })
