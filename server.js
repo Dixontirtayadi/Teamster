@@ -45,6 +45,17 @@ app.get('/class/teachers/game', function (req, res) { //classID=...&studentID=..
   res.end;
 })
 
+// Helene
+app.get('/class/students/murdermystery', function (req, res) { //classID=...&studentID=...&answers
+  var info = req.query;
+
+  console.log("murdermystery game is running");
+  res.sendFile(path.join(__dirname + '/webpage/murdermystery.html'));
+  //res.send(printMap());
+  res.end;
+})
+// Helene
+
 app.get('/getData', function (req, res) { //classID=...&studentID=...&answers
   res.send(printMap());
 })

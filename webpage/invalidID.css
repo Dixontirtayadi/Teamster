@@ -13,9 +13,7 @@ body {
     color: white;
     font-style: bold;
     padding: 25px;
-    display: flex;
-    justify-content: space-between;
-    border-radius: 30px;
+    border-radius: 30px;;
 }
 
  #input{
@@ -24,21 +22,15 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 150px;
+    margin-top: 250px;
  }
 
- #live_feed{
-     color: white;
-     font-size: 15px;
-     padding: 25px;
- }
+button {
+    background-color: #AC1B58;
+    border-color: #AC1B58;
+    border-radius: 38px;
+    width: 150px;
+    font-size: 15px;
+    color: white;
+}
 
- #end{
-     margin-bottom: 30px;
-     background-color: red;
-     border-color: red;
-     border-radius: 38px;
-     width: 150px;
-     font-size: 15px;
-     color: white;
- }
