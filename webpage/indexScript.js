@@ -10,16 +10,23 @@
 
   function getMap() {
     let query = getQueryStringValue("classID")
+    var data;
     fetch("/getData/" + query).then((res) => {
       res.json().then( (d) => {
         console.log("Got data!");
-        return (d);
+        console.log(d);
+        data = d;
       })
     })
+    return data;
   }
 
 function displayDate() {
-  document.getElementById("demo").innerHTML = Date() + getMap();
+  console.log("test" + getMap());
+
+  // // var parsed = JSON.stringify(values);
+  // console.log("parsed value is " + parsed);
+  document.getElementById("demo").innerHTML = Date();
 }
 
   /* ---- Helper Functions ---- */

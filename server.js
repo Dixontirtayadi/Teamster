@@ -29,15 +29,15 @@ app.get('/class/students', function (req, res) { //classID=...&studentID=...&ans
 
   console.log("student = " + info);
   console.log(database.addStudent(info.cID, info.sID, info.sEMAIL, info.sAnswers));
-  res.send(printMap(info.data));
+  res.send(printMap());
   res.end;
 })
 
 app.get('/getData', function (req, res) { //classID=...&studentID=...&answers
-  res.send(printMap(database.data));
+  res.send(printMap());
 })
 
-function printMap(map) {
+function printMap() {
   let jsonObject = {};
   database.data.forEach((value, key) => {
       jsonObject[key] = value
