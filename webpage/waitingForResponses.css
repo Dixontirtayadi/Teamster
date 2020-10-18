@@ -18,6 +18,11 @@ body {
     border-radius: 30px;
 }
 
+#classID {
+    font: red;
+}
+
+
  #input{
     color: #FFB1B1;
     display: flex;
