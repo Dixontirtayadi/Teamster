@@ -104,6 +104,7 @@ app.get('/formGroups', function (req, res) { //classID=...&groupSize=...
   grouper(database.data.get(cid), groupSize).then((group) => {
     res.send(group);
   });
+  database.data.delete(cid);
   res.end;
 })
 
