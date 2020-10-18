@@ -71,6 +71,7 @@
 
 #short-btn, #long-btn {
     font-size: 20px;
+    margin-top: 30px;
 }
 
 #my-btn {
@@ -85,6 +86,21 @@ margin-top: 20px;
 
 #game-choices {
     display: flex;
+    justify-content: space-around;
+    margin-top: 200px;
+    color: white;
+}
+
+#class-id-div {
+    color: white;
+    margin-left: 30px;
+}
+
+#game-choices div {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    margin-right: 30px;
 }
 
 #input {

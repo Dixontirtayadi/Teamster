@@ -15,32 +15,36 @@ app.get('/hi', function (req, res) {
   res.end;
 })
 
-app.get('/class', function (req, res) {
+app.get('/class', function (req, res) { //enters if user put in classID in start page
   var info = req.query;
-  // console.log(database.addClass(info.cID));
-  // console.log("class = " + info);
-  // res.send(printMap(info.data));
   res.sendFile(path.join(__dirname + '/webpage/memberInfo.html'));
   res.end;
 })
 
-app.get('/class/students', function (req, res) { //classID=...&studentID=...&answers
+app.get('/class/students', function (req, res) { //enters if student enters userId and email
   var info = req.query;
   // console.log("student = " + info);
   if (database.addStudent(info.cID, info.sID, info.sEMAIL) == "doesn't exist!") {
     res.sendFile(path.join(__dirname + '/404'));
   } else {
-    res.sendFile(path.join(__dirname + '/webpage/waitingroom.html'));
+    if(database.getStatus == "off") {
+      res.sendFile(path.join(__dirname + '/webpage/waitingroom.html'));
+    } else if (database.getStatus == "short") {
+      res.sendFile();
+    } else {
+      res.sendFile(path.join(__dirname + '/webpage/murdermystery.html'));
+    }
   }
   res.end;
 })
 
-app.get('/class/teachers/game', function (req, res) { //classID=...&studentID=...&answers
+app.get('/class/teachers/game', function (req, res) { //enters when create room is entered. Choose game here
   var info = req.query;
   // console.log("student = " + info);
-  if (!database.addClass(info.cID) == "exists!") {
+  // if (!database.addClass(info.cID) == "exists!") {
+    database.addClass(info.cID);
     res.sendFile(path.join(__dirname + '/webpage/gameDuration.html'));
-  }
+  // }
   res.end;
 })
 
