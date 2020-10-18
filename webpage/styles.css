@@ -19,6 +19,20 @@
     justify-content: space-evenly;
  }
 
+ #landingMain p {
+     font-style: bold;
+     font-size: 36px;
+ }
+
+ #ice {
+     font-size: 72px;
+     color: #00FFF0;
+ }
+
+ #rommChoice input {
+     margin-top: 20px;
+ }
+
  #header {
      background-color: #6C4882;
      font-size: 35px;
