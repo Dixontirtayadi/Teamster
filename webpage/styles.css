@@ -1,13 +1,113 @@
-/* Colors */
+* {
+    font-family: 'Montserrat', sans-serif;
+ }
+ 
+ body{
+    background-color: #32384B;
+    
+ }
 
-:root {
-    --dark-purple: #6C4882;
-    --white: #ffffff;
-    --orange: #FF7A00;
-    --green:#006504;
-    --cyan: #00FFF0;
-    --bubble-brown: #FF4D00;
-    --bubble-dark-brown: #1C1313;
-    --logo-grey: #C4C4C4;
+ #main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ }
 
+ #landingMain {
+     display: flex;
+    justify-content: space-evenly;
+ }
+
+ #landingMain p {
+     color: white;
+     font-style: bold;
+     font-size: 36px;
+     margin-top: 240px;
+     padding-top: 110px;
+ }
+
+ #ice {
+     font-size: 72px;
+     color: #00FFF0;
+ }
+
+ #rommChoice input {
+     margin-top: 20px;
+ }
+
+ #header {
+     background-color: #6C4882;
+     font-size: 35px;
+     color: white;
+     font-style: bold;
+     padding: 25px;
+     border-radius: 30px;;
+ }
+
+ h2 {
+     color: white;
+     margin-top: 80px;
+ }
+.form, .question {
+    margin-top: 20px;
+}
+
+#join, #create, #email, #name {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    height: 63px;
+    width: 514px;
+    border-radius: 23px;
+}
+
+#join-btn, #create-btn, #joinGame {
+    margin-bottom: 15px;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+}
+
+#my-btn {
+margin-top: 20px;
+}
+
+.numberOfPeople {
+    width: 150px;
+    height: 50px;
+    font-size: 5px 10px orange;
+}
+
+#input {
+    background-color: white;
+    padding: 50px;
+    border-radius: 5px;
+    border: 3px orange;
+    margin-top: 150px;
+    box-shadow: green 5px;
+}
+
+#roomChoice {
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+#roomChoice, #landingMain p {
+    margin-top: 150px;
+}
+
+button {
+    background-color: green;
+    border-color: green;
+    border-radius: 38px;
+    width: 150px;
+    font-size: 30px;
+    color: white;
+}
+
+.form {
+    display: flex;
+    justify-content: space-evenly;
 }

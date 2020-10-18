@@ -10,33 +10,22 @@
     <script src="indexScript.js"></script>
 </head>
 <body>
-
-<div class="wrapper">
-    <nav class="destop">
-        <a href="#">
-            <img src="images/head_banner.svg" alt=""/>
-        </a>
-    </nav>
-
-    <header class="slogan-teamster">
-        <div class="left">
-            <p>Break the</p><h1><span class="ICE">ICE</span></h1>
-            <img src="images/Logo.svg" alt="" /><h1>Teamster</h1>
-        </div>
-        <div class="circles">
-            <img class="cicle2" src="images/Ellipse2.svg" alt="" />
-            <img class="cicle1" src="images/Ellipse1.svg" alt="" />
-            <img class="cicle3" src="images/Ellipse3.svg" alt="" />
-        </div>
-    </header>
-    <section>
-        Join Room
-        <input type = "text" id = "join">
-        Create Room (enter desired ID)
-        <input type = "text" id = "create">
-        <button id="my-btn">Enter!</button>
-        <p id="demo"></p>
+    <section id = "header">
+        Teamster
     </section>
-</div>
+    <div id = "landingMain">
+        <section>
+            <p>break the <span id = "ice">ICE</span></p>
+        </section>
+        <section id = "roomChoice">
+            Join Room
+            <input type = "text" id = "join" placeholder = "Enter Class ID">
+            <button id="join-btn">Join!</button>
+            Create Room
+            <input type = "text" id = "create" placeholder = "Enter Email">
+            <button id="create-btn">Create!</button>
+            <p id="demo"></p>
+        </section>
+    </div>
 </body>
 </html>
