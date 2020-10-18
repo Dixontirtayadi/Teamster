@@ -1,0 +1,68 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+ }
+ 
+ body{
+    background-color: #32384B;
+    
+ }
+
+ #main {
+     display: flex;
+    flex-direction: column;
+    align-items: center;
+ }
+
+ #header {
+     background-color: #6C4882;
+     font-size: 35px;
+     color: white;
+     font-style: bold;
+     padding: 25px;
+ }
+
+ h2 {
+     color: white;
+     margin-top: 80px;
+ }
+
+.form, .question {
+    margin-top: 20px;
+}
+
+
+
+.form {
+    display: flex;
+    justify-content: center;
+}
+
+input {
+    width: 70%;
+}
+
+#input {
+    background-color: white;
+    padding: 50px;
+    border-radius: 5px;
+    border: 3px orange;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    box-shadow: green 5px;
+    width: 50%;
+}
+
+button {
+    background-color: green;
+    border-color: green;
+    border-radius: 38px;
+    width: 150px;
+    font-size: 30px;
+    color: white;
+    margin-bottom: 50px;
+}
+
+.form {
+    display: flex;
+    justify-content: space-evenly;
+}
