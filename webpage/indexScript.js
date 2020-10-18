@@ -16,6 +16,8 @@ function createClass() {
   window.location.href = 'http://localhost:3000/class/teachers/game?cID=' + Math.floor(Math.random() * 9000 + 999);
 }
 
+
+
   /* ---- Helper Functions ---- */
   function id(id) {
     return document.getElementById(id);

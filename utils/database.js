@@ -10,11 +10,47 @@ function addClass(classID) {
 }
 
 function addStudent(classID, sName, sEmail, sAnswers) {
-  if (data.has(classID)) {
-    data.get(classID).push({name: sName, email: sEmail, answers: sAnswers});
+  if (data.has(classID)) {var input = {name: sName, email: sEmail, answers: sAnswers};
+    var repeat = false;
+    for (var i = 0; i < data.get(classID).length; i++){
+      console.log("equals?    " + isEqual(data.get(classID)[i], input))
+      repeat = repeat || isEqual(data.get(classID)[i], input);
+    }
+
+    console.log(repeat);
+    if(!repeat) {
+      data.get(classID).push({name: sName, email: sEmail, answers: sAnswers});
+    }
   } else {
     return ("doesn't exist!");
   }
+  console.log(printMap())
+}
+
+function isEqual(a, b) {
+  // Create arrays of property names
+  var aProps = Object.getOwnPropertyNames(a);
+  var bProps = Object.getOwnPropertyNames(b);
+
+  // If number of properties is different,
+  // objects are not equivalent
+  if (aProps.length != bProps.length) {
+      return false;
+  }
+
+  for (var i = 0; i < aProps.length; i++) {
+      var propName = aProps[i];
+
+      // If values of same property are not equal,
+      // objects are not equivalent
+      if (a[propName] !== b[propName]) {
+          return false;
+      }
+  }
+
+  // If we made it this far, objects
+  // are considered equivalent
+  return true;
 }
 
 function printMap() {
