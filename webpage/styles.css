@@ -83,6 +83,10 @@ margin-top: 20px;
     font-size: 5px 10px orange;
 }
 
+#game-choices {
+    display: flex;
+}
+
 #input {
     background-color: white;
     padding: 50px;
