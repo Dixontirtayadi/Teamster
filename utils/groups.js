@@ -21,13 +21,6 @@ async function analyzeText(text) {
   // console.log(`  Score: ${sentiment.score}`);
   // console.log(`  Magnitude: ${sentiment.magnitude}`);
   return sentiment;
-
-  // const sentences = result.sentences;
-  // sentences.forEach(sentence => {
-  //   console.log(`Sentence: ${sentence.text.content}`);
-  //   console.log(`  Score: ${sentence.sentiment.score}`);
-  //   console.log(`  Magnitude: ${sentence.sentiment.magnitude}`);
-  // });
 }
 
 // Parallelize API calls within user and sum up the sentiments score and magnitude
