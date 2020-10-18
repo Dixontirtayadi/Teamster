@@ -17,8 +17,8 @@ app.get('/hi', function (req, res) {
 
 app.get('/class', function (req, res) {
   var info = req.query;
-  console.log(database.addClass(info.cID));
-  console.log("class = " + info);
+  // console.log(database.addClass(info.cID));
+  // console.log("class = " + info);
   // res.send(printMap(info.data));
   res.sendFile(path.join(__dirname + '/webpage/memberInfo.html'));
   res.end;
@@ -27,16 +27,20 @@ app.get('/class', function (req, res) {
 app.get('/class/students', function (req, res) { //classID=...&studentID=...&answers
   var info = req.query;
   // console.log("student = " + info);
-  console.log(database.addStudent(info.cID, info.sID, info.sEMAIL));
-  res.sendFile(path.join(__dirname + '/webpage/waitingroom.html'));
+  if (database.addStudent(info.cID, info.sID, info.sEMAIL) == "doesn't exist!") {
+    res.sendFile(path.join(__dirname + '/404'));
+  } else {
+    res.sendFile(path.join(__dirname + '/webpage/waitingroom.html'));
+  }
   res.end;
 })
 
-app.get('/class/teachers', function (req, res) { //classID=...&studentID=...&answers
+app.get('/class/teachers/game', function (req, res) { //classID=...&studentID=...&answers
   var info = req.query;
   // console.log("student = " + info);
-  console.log(database.addStudent(info.cID, info.sID, info.sEMAIL));
-  res.sendFile(path.join(__dirname + '/webpage/waitingroom.html'));
+  console.log(database.addClass(info.cID));
+  console.log("class = " + info);
+  res.sendFile(path.join(__dirname + '/webpage/gameDuration.html'));
   res.end;
 })
 
