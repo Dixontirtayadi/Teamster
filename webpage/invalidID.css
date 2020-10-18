@@ -1,0 +1,35 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+ }
+
+body {
+    background-color: #32384B;
+ }
+
+
+ #header {
+    background-color: #6C4882;
+    font-size: 35px;
+    color: white;
+    font-style: bold;
+    padding: 25px;
+}
+
+ #input{
+    color: #FFB1B1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 150px;
+ }
+
+
+button {
+    background-color: green;
+    border-color: green;
+    border-radius: 38px;
+    width: 150px;
+    font-size: 30px;
+    color: white;
+}
