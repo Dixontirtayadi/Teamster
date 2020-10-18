@@ -12,7 +12,6 @@
       let d = getMap();
       d.then((data) => (
         function() {
-          // console.log(data[classID].length);
           var str = "";
           for (var i = 0; i < data[classID].length ; i++) {
             console.log(id("displayClass").value);

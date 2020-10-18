@@ -32,6 +32,14 @@ app.get('/class/students', function (req, res) { //classID=...&studentID=...&ans
   res.end;
 })
 
+app.get('/class/teachers', function (req, res) { //classID=...&studentID=...&answers
+  var info = req.query;
+  // console.log("student = " + info);
+  console.log(database.addStudent(info.cID, info.sID, info.sEMAIL));
+  res.sendFile(path.join(__dirname + '/webpage/waitingroom.html'));
+  res.end;
+})
+
 app.get('/getData', function (req, res) { //classID=...&studentID=...&answers
   res.send(printMap());
 })
