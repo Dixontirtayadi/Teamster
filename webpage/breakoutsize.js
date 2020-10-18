@@ -4,13 +4,14 @@
   window.addEventListener("load", init);
 
   function init() {
+    console.log("Initialization");
     document.getElementById("start-btn").addEventListener("click", submitData);
   }
   
   function submitData() {
     var cid = getQueryStringValue("classID");
     var maxNum = id("numberOfPeople").value;
-    console.log(maxNum);
+    console.log("Here");
     window.location.href = window.location.origin + "/analyze?classID=" + cid + "&maxNum=" + maxNum;
   }
   // reference from MDN
