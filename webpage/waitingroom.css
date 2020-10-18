@@ -1,0 +1,14 @@
+body {
+    background-color: #32384B;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ }
+
+ .instruction{
+    color: #FFB1B1;
+ }
+
+ h2 {
+    color: white;
+}
