@@ -4,19 +4,15 @@
   window.addEventListener("load", init);
 
   function init() {
-    document.getElementById("create-btn").addEventListener("click", joinClass);
+    document.getElementById("join-btn").addEventListener("click", joinClass);
+    document.getElementById("create-btn").addEventListener("click", createClass);
   }
 
 function joinClass() {
   window.location.href = 'http://localhost:3000/class?cID=' + id("join").value;
 }
 
-function joinGame() {
-  const url = new URL(window.location.href);
-  const classID = url.searchParams.get(cID);
-  window.location.href = 'http://localhost:3000/class/students?cID=' + classID +
-    "&sID=" + id("name").value + "&sEMAIL=" + id("email").value;
-}
+
 
   /* ---- Helper Functions ---- */
   function id(id) {
