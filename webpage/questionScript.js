@@ -4,25 +4,20 @@
   window.addEventListener("load", init);
 
   function init() {
-    id("joinGame").addEventListener("click", joinGame);
-    const url = new URL(window.location.href);
-    const classID = url.searchParams.get("cID");
-    id("classID").innerHTML = classID;
-    if (id("displayClass") !== null) {
-      let d = getMap();
-      d.then((data) => (
-        id("diplayClass").innerHTML = JSON.stringify(data)
-      ));
-      // id("demo").innerHTML = id("join").value;
-    }
+    document.getElementById("submit").addEventListener("click", getData);
   }
 
-function joinGame() {
+
+function getData() {
+  var outputs = "1. " + id("q1").value + "   2. " + id("q2").value + "   3. "+ id("q3").value + "   4. "+ id("q4").value + "   5. "+ id("q5").value;
+  console.log(outputs);
   const url = new URL(window.location.href);
   const classID = url.searchParams.get("cID");
-  window.location.href = 'http://localhost:3000/class/students?cID=' + classID +
-    "&sID=" + id("name").value + "&sEMAIL=" + id("email").value + "&answer=null";
+  window.location.href = 'http://localhost:3000/submit?cID=' + classID +
+    "&sID=" + url.searchParams.get("sID") + "&sEMAIL=" + url.searchParams.get("sEMAIL") + "&answer=" + outputs;
 }
+
+
 
   /* ---- Helper Functions ---- */
   function id(id) {

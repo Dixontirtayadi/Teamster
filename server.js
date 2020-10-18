@@ -64,6 +64,11 @@ app.get('/class/teachers/game/short', function (req, res) { //enters when short 
   res.end;
 })
 
+app.get('/submit', function (req, res) {
+  var info =  req.query;
+  database.addAnswer(info.cID, info.sID, info.answer);
+})
+
 // Helene
 app.get('/class/students/murdermystery', function (req, res) { //classID=...&studentID=...&answers
   var info = req.query;

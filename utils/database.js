@@ -1,4 +1,5 @@
 let data = new Map(); //key: classID, value: object with student name, email, answers
+//format cID=' + classID + "&sID=" + id("name").value + "&sEMAIL=" + id("email").value + "&answer="");
 let on = new Map(); //Map with status of each class ("off" = no game(default), "short" = short game, "long" = full)
 
 function addClass(classID) {
@@ -62,6 +63,16 @@ function isEqual(a, b) {
   return true;
 }
 
+function addAnswer(cID, sID, answer) {
+  var arr = data.get(cID);
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i]["name"] == sID) {
+      arr[i]["answer"] =  answer;
+    }
+  }
+  console.log(printMap());
+}
+
 function printMap() {
   let jsonObject = {};
   data.forEach((value, key) => {
@@ -76,3 +87,4 @@ module.exports.data = data;
 module.exports.show = printMap;
 module.exports.getStatus = getStatus;
 module.exports.turnOn = turnOn;
+module.exports.addAnswer = addAnswer;
