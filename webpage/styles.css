@@ -22,6 +22,7 @@
      color: white;
      font-style: bold;
      font-size: 36px;
+     margin-top: 240px;
  }
 
  #ice {
@@ -49,9 +50,25 @@
     margin-top: 20px;
 }
 
+#join, #create {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    height: 63px;
+    width: 514px;
+    border-radius: 23px;
+}
+
+#join-btn, #create-btn {
+    margin-bottom: 15px;
+}
+
 .form {
     display: flex;
     justify-content: center;
+}
+
+#my-btn {
+margin-top: 20px;
 }
 
 .numberOfPeople {
@@ -73,6 +90,10 @@
     display: flex;
     flex-direction: column;
     color: white;
+}
+
+#roomChoice, #landingMain p {
+    margin-top: 200px;
 }
 
 button {
