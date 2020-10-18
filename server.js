@@ -38,9 +38,9 @@ app.get('/class/students', function (req, res) { //classID=...&studentID=...&ans
 app.get('/class/teachers/game', function (req, res) { //classID=...&studentID=...&answers
   var info = req.query;
   // console.log("student = " + info);
-  console.log(database.addClass(info.cID));
-  console.log("class = " + info);
-  res.sendFile(path.join(__dirname + '/webpage/gameDuration.html'));
+  if (!database.addClass(info.cID) == "exists!") {
+    res.sendFile(path.join(__dirname + '/webpage/gameDuration.html'));
+  }
   res.end;
 })
 
