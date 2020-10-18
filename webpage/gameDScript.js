@@ -22,7 +22,12 @@
         }()
       ));
     }
+    setTimeout(function(){
+      window.location.reload(1);
+    }, 5000);
   }
+
+
 
 function startShortGame() {
   window.location.href = 'http://localhost:3000/class/teachers/game/short?cID=' + classID;

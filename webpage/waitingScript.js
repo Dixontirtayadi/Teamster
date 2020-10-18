@@ -21,6 +21,9 @@
         }()
       ));
     }
+    setTimeout(function(){
+      window.location.reload(1);
+    }, 5000);
   }
 
   /* ---- Helper Functions ---- */
