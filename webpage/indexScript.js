@@ -1,5 +1,7 @@
 "use strict";
 
+var MAPJSON
+
 (function () {
   window.addEventListener("load", init);
 
@@ -12,23 +14,21 @@
     let query = getQueryStringValue("classID")
     return fetch("/getData/" + query).then((res) => {
       res.json().then( (d) => {
-        console.log("Got data!");
-        console.log(d);
+        // console.log("Got data!");
+        // console.log(JSON.stringify(d));
+        MAPJSON = (d);
+        console.log("tetsetsdg    " + MAPJSON);
         return d
       })
-    }).then ( (d) => {
-      console.log("test 2 "  + d);
-      return d
     })
   }
 
 function displayDate() {
   var d = getMap();
-  console.log("test" + d);
 
   // // var parsed = JSON.stringify(values);
   // console.log("parsed value is " + parsed);
-  document.getElementById("demo").innerHTML = Date();
+  document.getElementById("demo").innerHTML = JSON.stringify(MAPJSON);
 }
 
   /* ---- Helper Functions ---- */
