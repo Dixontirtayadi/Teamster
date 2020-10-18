@@ -17,15 +17,21 @@ body {
 }
 
 .wrapper {
+    display: flex;
+    flex-direction: column;
     width: 1440 px;
+    height: 900 px;
     margin: 0 auto;
+    background-color: #32384B;
 }
 
 .desktop-nav {
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
     background-color: var(--purple-color);
+    position: fixed;
+    padding: 20 20 px;
+    z-index: 200;
+    width: 1440px;
 }
 
 .desktop-nav .top-menu li {
@@ -35,4 +41,31 @@ body {
     color: white;
     font-size: 36px;
     font-weight: bold;
+}
+
+.container {
+    height: 900px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container .left h1 {
+    font-size: 48px;
+}
+
+.ellipse-container .circle1 {
+    position: absolute;
+    z-index: -1;
+    left: -138px;
+    top: -108px;
+}
+
+.ellipse-container .circle2 {
+    position: absolute;
+    width: 443px;
+    height: 443px;
+    z-index: -1;
+    left: 391px;
+    top: 73px;
 }
