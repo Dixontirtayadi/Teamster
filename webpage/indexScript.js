@@ -9,11 +9,11 @@
   }
 
 function joinClass() {
-  window.location.href += 'class?cID=' + id("join").value;
+  window.location.href = window.location.origin + '/class?cID=' + id("join").value;
 }
 
 function createClass() {
-  window.location.href += 'class/teachers/game?cID=' + Math.floor(Math.random() * 9000 + 999);
+  window.location.href = window.location.origin + '/class/teachers/game?cID=' + Math.floor(Math.random() * 9000 + 999);
 }
 
 

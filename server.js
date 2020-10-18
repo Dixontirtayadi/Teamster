@@ -49,6 +49,7 @@ app.get('/class/teachers/game', function (req, res) { //enters when create room 
   // console.log("student = " + info);
   // if (!database.addClass(info.cID) == "exists!") {
     database.addClass(info.cID);
+    console.log("HERE");
     res.sendFile(path.join(__dirname + '/webpage/gameDuration.html'));
   // }
   res.end;
@@ -58,9 +59,9 @@ app.get('/class/teachers/game/short', function (req, res) { //enters when short 
   var info = req.query;
   // console.log("student = " + info);
   // if (!database.addClass(info.cID) == "exists!") {
-    database.turnOn(info.cID, "short");
-    console.log("turned " + info.cID + " " + database.getStatus(info.cID));
-    res.sendFile(path.join(__dirname + '/webpage/waitingForResponses.html'));
+  database.turnOn(info.cID, "short");
+  console.log("turned " + info.cID + " " + database.getStatus(info.cID));
+  res.sendFile(path.join(__dirname + '/webpage/waitingForResponses.html'));
   // }
   res.end;
 })
@@ -82,6 +83,11 @@ app.get('/class/students/murdermystery', function (req, res) { //classID=...&stu
 })
 // Helene
 
+app.get('/analyzeResult', function (req, res) { //classID=...&groupSize=...
+  res.sendFile(path.join(__dirname + "/webpage/loadingresults.html"));
+  res.end;
+})
+
 app.get('/getData', function (req, res) {
   res.send(printMap());
 })
@@ -95,6 +101,7 @@ app.get('/formGroups', function (req, res) { //classID=...&groupSize=...
     // }
     res.send(group);
   });
+  res.end;
 })
 
 function printMap() {
