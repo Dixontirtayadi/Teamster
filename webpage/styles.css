@@ -1,6 +1,5 @@
 * {
     font-family: 'Montserrat', sans-serif;
-    color: white;
  }
  
  body{
@@ -20,8 +19,11 @@
  }
 
  #landingMain p {
+     color: white;
      font-style: bold;
      font-size: 36px;
+     margin-top: 240px;
+     padding-top: 110px;
  }
 
  #ice {
@@ -39,6 +41,7 @@
      color: white;
      font-style: bold;
      padding: 25px;
+     border-radius: 30px;;
  }
 
  h2 {
@@ -49,9 +52,25 @@
     margin-top: 20px;
 }
 
+#join, #create, #email, #name {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    height: 63px;
+    width: 514px;
+    border-radius: 23px;
+}
+
+#join-btn, #create-btn, #joinGame {
+    margin-bottom: 15px;
+}
+
 .form {
     display: flex;
     justify-content: center;
+}
+
+#my-btn {
+margin-top: 20px;
 }
 
 .numberOfPeople {
@@ -72,6 +91,11 @@
 #roomChoice {
     display: flex;
     flex-direction: column;
+    color: white;
+}
+
+#roomChoice, #landingMain p {
+    margin-top: 150px;
 }
 
 button {

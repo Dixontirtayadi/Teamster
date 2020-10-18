@@ -4,7 +4,7 @@
   window.addEventListener("load", init);
 
   function init() {
-    document.getElementById("my-btn").addEventListener("click", joinClass);
+    document.getElementById("create-btn").addEventListener("click", joinClass);
   }
 
 function joinClass() {
