@@ -4,14 +4,13 @@
   window.addEventListener("load", init);
 
   function init() {
-    id("joinGame").addEventListener("click", joinGame);
     const url = new URL(window.location.href);
     const classID = url.searchParams.get("cID");
     id("classID").innerHTML = classID;
     if (id("displayClass") !== null) {
       let d = getMap();
       d.then((data) => (
-        id("diplayClass").innerHTML = JSON.stringify(data)
+        id("displayClass").innerHTML = JSON.stringify(data)
       ));
       // id("demo").innerHTML = id("join").value;
     }
