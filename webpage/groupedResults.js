@@ -26,7 +26,7 @@
                 list.appendChild(nameEmail);
             }
             id("text_results").appendChild(list);
-            id("export").addEventListener(exportToCsv, "breakoutrooms.csv", results);
+            id("export").addEventListener("click", exportToCsv, "breakoutrooms.csv", results);
         }
     }
 
