@@ -27,11 +27,16 @@ app.get('/class/students', function (req, res) { //enters if student enters user
   if (database.addStudent(info.cID, info.sID, info.sEMAIL) == "doesn't exist!") {
     res.sendFile(path.join(__dirname + '/404'));
   } else {
-    if(database.getStatus == "off") {
+    const status = database.getStatus(info.cID);
+    console.log(status);
+    if(status === "off") {
+      console.log("1");
       res.sendFile(path.join(__dirname + '/webpage/waitingroom.html'));
-    } else if (database.getStatus == "short") {
-      res.sendFile();
+    } else if (status === "short") {
+      console.log("2" + status);
+      res.sendFile(path.join(__dirname + '/webpage/questions.html'));
     } else {
+      console.log("3");
       res.sendFile(path.join(__dirname + '/webpage/murdermystery.html'));
     }
   }
@@ -44,6 +49,16 @@ app.get('/class/teachers/game', function (req, res) { //enters when create room 
   // if (!database.addClass(info.cID) == "exists!") {
     database.addClass(info.cID);
     res.sendFile(path.join(__dirname + '/webpage/gameDuration.html'));
+  // }
+  res.end;
+})
+
+app.get('/class/teachers/game/short', function (req, res) { //enters when short game is chosen
+  var info = req.query;
+  // console.log("student = " + info);
+  // if (!database.addClass(info.cID) == "exists!") {
+    database.turOn(info.cID, "short");
+    res.sendFile(path.join(__dirname + '/webpage/waitingForResponse.html'));
   // }
   res.end;
 })
