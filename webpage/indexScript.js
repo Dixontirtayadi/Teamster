@@ -10,25 +10,21 @@
 
   async function getMap() {
     let query = getQueryStringValue("classID")
-    return fetch("/getData/" + query).then((res) => {
-      res.json().then( (d) => {
-        console.log("Got data!");
-        console.log(d);
-        return d
-      })
-    }).then ( (d) => {
-      console.log("test 2 "  + d);
-      return d
-    })
+    const resp = await fetch("/getData/");
+    const json = await resp.json();
+    console.log(json);
+      return json;
   }
 
 function displayDate() {
-  var d = getMap();
-  console.log("test" + d);
+  let d = getMap();
+  d.then((data) => (
+    document.getElementById("demo").innerHTML = JSON.stringify(data)
+  ));
 
   // // var parsed = JSON.stringify(values);
   // console.log("parsed value is " + parsed);
-  document.getElementById("demo").innerHTML = Date();
+
 }
 
   /* ---- Helper Functions ---- */
