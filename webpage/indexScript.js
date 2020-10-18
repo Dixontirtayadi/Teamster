@@ -8,21 +8,23 @@
     console.log(getMap());
   }
 
-  function getMap() {
+  async function getMap() {
     let query = getQueryStringValue("classID")
-    var data;
-    fetch("/getData/" + query).then((res) => {
+    return fetch("/getData/" + query).then((res) => {
       res.json().then( (d) => {
         console.log("Got data!");
         console.log(d);
-        data = d;
+        return d
       })
+    }).then ( (d) => {
+      console.log("test 2 "  + d);
+      return d
     })
-    return data;
   }
 
 function displayDate() {
-  console.log("test" + getMap());
+  var d = getMap();
+  console.log("test" + d);
 
   // // var parsed = JSON.stringify(values);
   // console.log("parsed value is " + parsed);
