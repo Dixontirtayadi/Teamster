@@ -4,10 +4,9 @@ const client = new language.LanguageServiceClient();
 const Q = require('q');  
 
 // Call sentiment analysis
-// Params: User Object which has uID and Responses
-// Return: {uID: ..., sent: {score:..., magnitude:...}}
-async function analyzeText(user) {
-  const text = user;
+// Params: text to analyze
+// Return: the sentiment score and magnitude
+async function analyzeText(text) {
   const document = {
     content: text,
     type: 'PLAIN_TEXT',
@@ -17,10 +16,10 @@ async function analyzeText(user) {
   const [result] = await client.analyzeSentiment({document});
 
   const sentiment = result.documentSentiment;
-  console.log('Document sentiment:');
-  console.log(text);
-  console.log(`  Score: ${sentiment.score}`);
-  console.log(`  Magnitude: ${sentiment.magnitude}`);
+  // console.log('Document sentiment:');
+  // console.log(text);
+  // console.log(`  Score: ${sentiment.score}`);
+  // console.log(`  Magnitude: ${sentiment.magnitude}`);
   return sentiment;
 
   // const sentences = result.sentences;
@@ -31,11 +30,14 @@ async function analyzeText(user) {
   // });
 }
 
+// Parallelize API calls within user and sum up the sentiments score and magnitude
+// return {userID: ..., sent:{score:..., magnitude:...}
 async function analyzeOneUser(user) {
   const myPromise = new Promise((resolve, reject) => {
     var sentArr = []
-    for (let i = 0; i < user.responses.length; i++) {
-      sentArr[i] = analyzeText(user.responses[i]);
+    var responses = user.answer.split("|");
+    for (let i = 0; i < responses.length; i++) {
+      sentArr[i] = analyzeText(responses[i]);
     }  
     Q.all(sentArr).then(function() {
       let sentiment = {magnitude: 0, score: 0};
@@ -43,7 +45,7 @@ async function analyzeOneUser(user) {
         sentiment.magnitude += sentArr[i].magnitude;
         sentiment.score += sentArr[i].score;
       }
-      resolve({userID: user.sID, sent: sentiment});
+      resolve({email: user.email, name: user.name, sent: sentiment});
     });  
   });
   return myPromise;
@@ -51,13 +53,17 @@ async function analyzeOneUser(user) {
 }
 
 // Make the analyze call parallel for each user
-// return an array of Promises object which will
-// resolve to {uID: ..., sent: {score:..., magnitude:...}}
 async function analyzeUsers(users, sentimentTemp) {
-  for (let i = 0; i < users.length; i++) {
-    // sentimentTemp[i] = analyzeText(users[i]);
-    sentimentTemp[i] = analyzeOneUser(users[i]);
-  }
+  const myPromise = new Promise((resolve, reject) => {
+    var sentimentTemp = [];
+    for (let i = 0; i < users.length; i++) {
+      sentimentTemp.push(analyzeOneUser(users[i]));
+    }
+    Q.all(sentimentTemp).then(function() {
+      resolve(sentimentTemp);
+    });  
+  });
+  return myPromise;
 }
 
 // Params: array of users and a maximum number of group to make
@@ -66,34 +72,38 @@ function formGroups(users, groupSiz) {
   const myPromise = new Promise((resolve, reject) => {
     var groupSize = 2;
     // var trial = ["I love ice cream", "asdqwdn", "I hate this hw", "Is it raining now?"];
-    var trial = [{sID: "1", responses: ["I love ice cream", "I love dogs"]}, {sID: "2", responses: ["I hate ice cream", "I hate dogs"]}]
+    // var trial = [{sID: "1", responses: ["I love ice cream", "I love dogs"]}, {sID: "2", responses: ["I hate ice cream", "I hate dogs"]}]
     var groups = [];
-    var sentiments = [];
-    analyzeUsers(trial, sentiments);
-    Q.all(sentiments).then(function() {
+    var sentiments = analyzeUsers(users, sentiments);
+    // console.log(sentiments);
+    sentiments.then((data) => {
       // console.log(sentiments);
-      sentiments.sort(compareSent);
-      console.log(sentiments);
-      groups = assignGroupFromSentiment(sentiments, groupSize);
+      // console.log(data);
+      data.sort(compareSent);
+      // console.log(sentiments);
+      groups = assignGroupFromSentiment(data, groupSize);
       // Testing
       for (let i = 0; i < groups.length; i++) {
-        console.log("groups: " + groups[i]);
+        console.log("groups: " + JSON.stringify(groups[i]));
       }
       resolve(groups);
-    });  
+    });
   });
   return myPromise;
 }
 
 // Assign the grouping per index to the groups array
-async function assignGroupFromSentiment(sentiments, groupSize) {
+function assignGroupFromSentiment(sentiments, groupSize) {
   var groups = [];
   for (let i = 0; i < sentiments.length; ) {
-    console.log(i);
+    // console.log(i);
     let j = i + groupSize;
     let group = [];
     while (i < j) {
-      group.push(sentiments[i].userID);
+      if (i >= sentiments.length) {
+        break;
+      }
+      group.push({email: sentiments[i].email, name: sentiments[i].name});
       i++;
     }
     groups.push(group);

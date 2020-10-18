@@ -9,11 +9,11 @@
 
 
 function getData() {
-  var outputs = "1. " + id("q1").value + "   2. " + id("q2").value + "   3. "+ id("q3").value + "   4. "+ id("q4").value + "   5. "+ id("q5").value;
+  var outputs = id("q1").value + "|" + id("q2").value + "|"+ id("q3").value + "|"+ id("q4").value + "|"+ id("q5").value;
   console.log(outputs);
   const url = new URL(window.location.href);
   const classID = url.searchParams.get("cID");
-  window.location.href = 'http://localhost:3000/submit?cID=' + classID +
+  window.location.href = window.location.origin + '/submit?cID=' + classID +
     "&sID=" + url.searchParams.get("sID") + "&sEMAIL=" + url.searchParams.get("sEMAIL") + "&answer=" + outputs;
 }
 

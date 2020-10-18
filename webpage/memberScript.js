@@ -20,7 +20,7 @@
 function joinGame() {
   const url = new URL(window.location.href);
   const classID = url.searchParams.get("cID");
-  window.location.href = 'http://localhost:3000/class/students?cID=' + classID +
+  window.location.href = window.location.origin + '/class/students?cID=' + classID +
     "&sID=" + id("name").value + "&sEMAIL=" + id("email").value + "&answer=null";
 }
 

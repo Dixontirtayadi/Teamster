@@ -9,11 +9,11 @@
   }
 
 function joinClass() {
-  window.location.href = 'http://localhost:3000/class?cID=' + id("join").value;
+  window.location.href += 'class?cID=' + id("join").value;
 }
 
 function createClass() {
-  window.location.href = 'http://localhost:3000/class/teachers/game?cID=' + Math.floor(Math.random() * 9000 + 999);
+  window.location.href += 'class/teachers/game?cID=' + Math.floor(Math.random() * 9000 + 999);
 }
 
 

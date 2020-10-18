@@ -85,9 +85,12 @@ app.get('/getData', function (req, res) {
 })
 
 app.get('/formGroups', function (req, res) { //classID=...&groupSize=...
-  var cid = req.query.cID;
-  var groupSize = req.query.groupSize;
-  grouper(database.data[cid], groupSize).then((group) => {
+  var cid = req.query.classID;
+  var groupSize = 2;
+  // console.log(cid);
+  // console.log(database.data.get(cid));
+  grouper(database.data.get(cid), groupSize).then((group) => {
+    // console.log(group);
     res.send(group);
   });
 })
