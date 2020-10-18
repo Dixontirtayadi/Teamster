@@ -26,11 +26,11 @@ body {font-family: "Lato", sans-serif}
 #regForm {
   background-color: #ffffff;
   opacity: 0.8;
-  margin: 300px auto;
+  /* margin: 300px auto; */
   font-family: Lato;
   padding: 40px;
   width: 50%;
-  min-width: 600px;
+  min-width: 700px;
 }
 
 h1 {
@@ -112,28 +112,24 @@ button:hover {
 
     <!-- Page content -->
     <img src="https://images.squarespace-cdn.com/content/v1/5e8f8debe5f4bb1e8bf451c1/1586545614233-RFMENR4F9I3XFI4A0T5Z/ke17ZwdGBToddI8pDm48kLkXF2pIyv_F2eUT9F60jBl7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0iyqMbMesKd95J-X4EagrgU9L3Sa3U8cogeb0tjXbfawd0urKshkc5MgdBeJmALQKw/Background+Only.jpg?format=2500w" style="width:100%">
-    <div class="w3-display-middle w3-content" style="max-width:2000px;margin-top:48px">
+    <div class="w3-display-left w3-content" style="max-width:3000px;margin-top:48px; margin-left:40px">
 
         <form id="regForm" action= "murdermystery_game" >
             <!-- One "tab" for each step in the form: -->
             <div class="tab">
-                <h3>Murder Mystery</h3>
-                <p><b>Trust Nobody. Even yourself.</b></p>  
+                <h3>Round One</h3>
+                <p><b>Let's dive in.</b></p>  
             </div>
             <div class="tab">
-                <h3>The Scene at Rumman Manor</h3>
-                <p><b>We are gathered here this afternoon to read the last will and testament of the Baroness Arabella Rummum.  She died recently under tragic and mysterious circumstances.  The police haven't been able to find out what happened.
-                    As a friend of hers, you are here to lay claim to some of the wonderful artefacts that the baroness has collected over the years. When you arrive at her manor, you find that there are many people who knew the late Baroness. 
-                    The group is an eclectic mix of characters, and with the mystery of the Baroness' murder still unsolved, you don't know who you can trust.</b></p>            
+                <h3>You arrive at the gate of the manor, where you come across (character name).</h3>
+                <p><b>Brief Character Description. You ask them a question. The answer is provided here. You continue on your way to the house.</b></p>            
             </div>
             <div class="tab">
-                <h3>The Scene is Odd, but Keep Your Composure</h3>
-                <p><b>1. Remain in character throughout the game.</b></p>
-                <p><b>2. Answer questions according to the information you are given.</b></p>
-                <p><b>3. Don't lie, but make sure to be evasive about sensitive information....</b></p> 
+                <h3>Entering the house, you are stopped by (character name).</h3>
+                <p><b>Brief character description. They ask you a question. You respond. After the odd encounter, you smile poitely and continue inside.</b></p>
             </div>
             <div class="tab">
-                <h3>Your Character</h3>
+              <img src="https://i.pinimg.com/originals/b7/01/9f/b7019fd7863adfb70a1b95b9a382e9c5.jpg">
             </div>
             <div style="overflow:auto;">
               <div style="float:right;">
@@ -196,7 +192,7 @@ button:hover {
         document.getElementById("prevBtn").style.display = "inline";
     }
     if (n == (x.length - 1)) {
-        document.getElementById("nextBtn").innerHTML = "Submit";
+        document.getElementById("nextBtn").innerHTML = "Next Round";
     } else {
         document.getElementById("nextBtn").innerHTML = "Next";
     }
